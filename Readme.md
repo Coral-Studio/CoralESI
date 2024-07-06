@@ -14,22 +14,21 @@
 
 1. CESI_entrypoint:
 
-    CESI 的启动接入点，进行自检并启动子功能等。
+   CESI 的启动接入点，进行自检并启动子功能等。
 
-    在同级文件夹下放置名为 `DISABLE` 的空文件即可关闭 CESI 的所有功能。
-
+   在同级文件夹下放置名为 `DISABLE` 的空文件即可关闭 CESI 的所有功能。
 2. CESI_run:
 
-    按顺序启动 `CESI_run.manifest` 中的软件，`CESI_run.manifest` 格式如下：
+   按顺序启动 `CESI_run.manifest` 中的软件，`CESI_run.manifest` 格式如下：
 
-    ```
-    C:\Windows\System32\notepad.exe
-    C:\Windows\System32\cmd.exe|echo Hello
-    CESI_EOF_MARK
-    ```
+   ```
+   C:\Windows\System32\notepad.exe
+   C:\Windows\System32\cmd.exe|echo Hello
+   CESI_EOF_MARK
+   ```
 
-    其中第一行示例为仅运行软件，第二行示例为运行软件并且设置命令行参数。
-    必须一行一条命令，必须使用 `|` 作为软件路径与命令行参数的分隔符且分隔符周围不得有任何多余空格，必须使用绝对路径（未来考虑支持相对路径），必须使用 `CESI_EOF_MARK` 作为清单文件的终止符。
+   其中第一行示例为仅运行软件，第二行示例为运行软件并且设置命令行参数。
+   必须一行一条命令，必须使用 `|` 作为软件路径与命令行参数的分隔符且分隔符周围不得有任何多余空格，必须使用绝对路径（未来考虑支持相对路径），必须使用 `CESI_EOF_MARK` 作为清单文件的终止符。
 
 ## 安装
 
@@ -38,11 +37,8 @@
 *以下所有操作请均以**管理员身份**进行*
 
 1. 关闭还原功能。
-
-2. 执行 `Compile.bat` 文件，请确保环境变量存在 C++ 编译器命令行，推荐使用 `TDM-GCC 9.2` 编译器进行编译。
-
+2. 执行 `Compile.bat` 文件，请确保系统环境中存在 `g++`，推荐使用 `TDM-GCC 9.2` 编译器进行编译。
 3. 执行 `Set CESI Startup (sc).bat` 或 `Set CESI Startup (reg).bat`，推荐使用前者，前者采用系统服务的方式注册开启自启，后者采用普通应用的方式注册，可能会导致开机命令行闪现。
-
 4. 开启还原功能并重启，完成。
 
 > 需要根据实际需求或文件路径修改的内容：
@@ -69,18 +65,17 @@ As a universal boot platform for registering or launching programs at startup, e
    CESI's startup entry point performs self-checks and initiates sub-functions.
 
    Place an empty file named `DISABLE` in the same folder to disable all CESI functionalities.
-
 2. CESI_run:
 
    Sequentially launches software listed in `CESI_run.manifest`. The format of `CESI_run.manifest` is as follows:
 
-    ```
-    C:\Windows\System32\notepad.exe
-    C:\Windows\System32\cmd.exe|echo Hello
-    CESI_EOF_MARK
-    ```
+   ```
+   C:\Windows\System32\notepad.exe
+   C:\Windows\System32\cmd.exe|echo Hello
+   CESI_EOF_MARK
+   ```
 
-    The first line runs the software only, while the second line runs the software with command line parameters. Each command must be on a separate line, use `|` as the separator between the software path and command line parameters without any additional spaces around the separator, and must use absolute paths (with future consideration for relative paths). Use `CESI_EOF_MARK` as the termination marker for the manifest file.
+   The first line runs the software only, while the second line runs the software with command line parameters. Each command must be on a separate line, use `|` as the separator between the software path and command line parameters without any additional spaces around the separator, and must use absolute paths (with future consideration for relative paths). Use `CESI_EOF_MARK` as the termination marker for the manifest file.
 
 ## Installation
 
@@ -89,11 +84,8 @@ As a universal boot platform for registering or launching programs at startup, e
 *Perform all operations below with **administrator privileges**.*
 
 1. Disable restore functionality.
-
-2. Run the `Compile.bat` file. Ensure that the environment variable for the C++ compiler command line is set up. It is recommended to use the `TDM-GCC 9.2` compiler for compilation.
-
+2. Run the `Compile.bat` file. Ensure that the environment `g++` command line is set up. It is recommended to use the `TDM-GCC 9.2` compiler for compilation.
 3. Run either `Set CESI Startup (sc).bat` or `Set CESI Startup (reg).bat`. The former registers and starts CESI as a system service for startup, while the latter registers CESI as a regular application, which may cause a brief command line flash during startup.
-
 4. Enable restore functionality and restart to complete the process.
 
 > Modify the following according to actual needs or file paths:
