@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     PrintLog("Run commands in CESI_run.manifest");
 
     ifstream manifest;
-    manifest.open("CESI_run.manifest", ios::in);
+    manifest.open("CESI_run\\CESI_run.manifest", ios::in);
     if(!manifest)
     {
         PrintLog("Failed to open CESI_run.manifest", 3);

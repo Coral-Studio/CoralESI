@@ -9,6 +9,8 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
+    SetCurrentDirectory(GetExecFileFolder().c_str());
+
     LogFileInit();
     PrintLogHeader();
 
