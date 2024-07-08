@@ -129,7 +129,7 @@ int DoCommand(vector<string>cmd){
 
         STARTUPINFO si={sizeof(si)};
         PROCESS_INFORMATION pi;
-        BOOL ret = CreateProcess(NULL,(TCHAR*)("\"" + cmd[1] + "\"").c_str(),NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,NULL,NULL,&si,&pi); 
+        BOOL ret = CreateProcess(NULL,(TCHAR*)cmd[1].c_str(),NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,NULL,NULL,&si,&pi); 
         if(ret == TRUE)
         {
             if(cmd.size()>2 && cmd[2] == "WAIT") WaitForSingleObject(pi.hThread,INFINITE); 

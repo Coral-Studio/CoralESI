@@ -42,7 +42,7 @@ CESI_EOF_MARK
 
 请将某个软件相关文件存储在 `CESI_install` 的子文件夹中，并在 `CESI_install.manifest` 中添加子文件夹名，同样地，该文件必须以 `CESI_EOF_MARK` 结尾且不得有空行。
 
-在子文件夹中还需要配置 `CESI_INSTALL_LIST` 清单文件，该文件必须以 `CESI_INSTALL_LIST_FORMATVERSION_1` 开头并以 `CESI_EOF_MARK` 结尾，不得有空行或多余空格，清单中的命令可以为上述四条命令，请严格以 `|` 作为分隔符且分隔符左右不得有多余空格，文件中的路径不需要额外用引号包裹（但 `CMD` 选项由于执行的是命令因此程序不会自动补全引号）。注释可以以 `#` 开头添加至文件中。请参考 `TemplateInstallationFolder` 中的 `CESI_INSTALL_LIST.template` 文件。
+在子文件夹中还需要配置 `CESI_INSTALL_LIST` 清单文件，该文件必须以 `CESI_INSTALL_LIST_FORMATVERSION_1` 开头并以 `CESI_EOF_MARK` 结尾，不得有空行或多余空格，清单中的命令可以为上述四条命令，请严格以 `|` 作为分隔符且分隔符左右不得有多余空格，除了 `CMD` 和 `RUN` 选项外文件中的路径不需要额外用引号包裹。注释可以以 `#` 开头添加至文件中。请参考 `TemplateInstallationFolder` 中的 `CESI_INSTALL_LIST.template` 文件。
 
 值得注意的是我们在该 `.template` 文件下方添加了一些以 `//` 开头的注释，理论上 `CESI_EOF_MARK` 标志下方的行不会被 CESI 读取，但我们仍强烈建议您在使用时删去这些注释以及空行。
 
