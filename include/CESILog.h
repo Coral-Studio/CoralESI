@@ -10,10 +10,10 @@ using std::string;
 
 //Control Variables Part
 namespace LogControl{
-    const bool isPrintLogToConsole = false;
+    bool isPrintLogToConsole = false;
     std::ofstream logFileStream;
-    const int globalLogLevel = 0;
-    const char* logPath="CESI.log";//Could change to absolute path when need
+    int globalLogLevel = 0;
+    char* logPath="CESI.log";//Could change to absolute path when need
 }
 
 //Private Functions Part

@@ -53,6 +53,8 @@ int main(int argc, char* argv[]){
         se.nShow = SW_HIDE;//SW_SHOW when debugging
 
         if(!ShellExecuteEx(&se)) PrintLog("Failed to run command: " + _command, 2);
+        
+        Sleep(1000);
     }
 
     PrintLog("File ends without CESI_EOF_MARK mark", 1);
