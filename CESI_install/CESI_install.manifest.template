@@ -1,0 +1,10 @@
+TemplateInstallationFolder
+GoogleChrome
+MicrosoftEdge
+#MozillaFirefox
+CESI_EOF_MARK
+
+//Lines before CESI_EOF_MARK means installation folders existing in the SAME FOLDER. Each line can only contain ONE folder name.
+//Adding '#' at the beginning of the line means skip this installation folder.
+//The ending of CESI_EOF_MARK is necessary.
+//You had better delete these comments and leave CESI_EOF_MARK the LAST LINE (which means no more blank lines after CESI_EOF_MARK).

@@ -13,7 +13,7 @@ namespace LogControl{
     bool isPrintLogToConsole = false;
     std::ofstream logFileStream;
     int globalLogLevel = 0;
-    char* logPath="CESI.log";//Could change to absolute path when need
+    string defaultLogPath="CESI.log";//Could change to absolute path when need
 }
 
 //Private Functions Part
@@ -37,19 +37,19 @@ namespace LogPrivateFunc{
 
 //Declaration Part
 
-void LogFileInit();
+void LogFileInit(string _logPath);
 inline void PrintLogHeader();
 inline void PrintLog(string body, int level);
 
 //Definition Part
 
-void LogFileInit(){
+void LogFileInit(string _logPath=LogControl::defaultLogPath){
     using namespace std;
     using namespace LogControl;
 
     if(isPrintLogToConsole == false)
     {
-        logFileStream.open(logPath,ios::app|ios::out);
+        logFileStream.open(_logPath,ios::app|ios::out);
         clog.rdbuf(logFileStream.rdbuf());
     }
 }

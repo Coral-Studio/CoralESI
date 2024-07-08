@@ -4,19 +4,19 @@
 #include <iostream>
 #include "../include/CESILog.h"
 #include "../include/CESIPath.h"
-#include<direct.h>
+#include <direct.h>
 
 using namespace std;
 
 int main(int argc, char* argv[]){
-    SetCurrentDirectory((GetExecFileFolder() + "\\..").c_str());
+    SetCurrentDirectory(GetExecFileFolder().c_str());
 
-    LogFileInit();
+    LogFileInit("..\\CESI.log");
 
-    PrintLog("Run commands in CESI_run.manifest");
+    PrintLog("Loading commands in CESI_run.manifest");
 
     ifstream manifest;
-    manifest.open("CESI_run\\CESI_run.manifest", ios::in);
+    manifest.open("CESI_run.manifest", ios::in);
     if(!manifest)
     {
         PrintLog("Failed to open CESI_run.manifest", 3);
@@ -51,9 +51,8 @@ int main(int argc, char* argv[]){
         // se.lpParameters = (TCHAR*)_parameters.c_str();
         // se.lpDirectory = NULL;//Reserved
         // se.nShow = SW_HIDE;//SW_SHOW when debugging
-
         // if(!ShellExecuteEx(&se)) PrintLog("Failed to run command: " + _command, 2);
-        
+
         STARTUPINFO si={sizeof(si)};
         PROCESS_INFORMATION pi;
         BOOL ret = CreateProcess(NULL,(TCHAR*)_command.c_str(),NULL,NULL,FALSE,NORMAL_PRIORITY_CLASS,NULL,NULL,&si,&pi); 
