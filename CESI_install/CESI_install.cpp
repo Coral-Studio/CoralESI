@@ -142,6 +142,23 @@ int DoCommand(vector<string>cmd){
             return 1;
         }
     }
+    else if(cmd[0] == "EXEC")
+    {
+        if(!(4<=cmd.size() && cmd.size()<=4))
+        {
+            PrintLog("Wrong format of command: " + cmd[0], 2);
+            return 1;
+        }
+        SHELLEXECUTEINFO se;
+        memset(&se, 0, sizeof(SHELLEXECUTEINFO));
+        se.cbSize = sizeof(SHELLEXECUTEINFO);
+        se.lpVerb = (TCHAR*)"runas";//Run as admin
+        se.lpFile = (TCHAR*)cmd[1].c_str();
+        se.lpParameters = (TCHAR*)cmd[2].c_str();
+        se.lpDirectory = NULL;//Reserved
+        se.nShow = (cmd[3]=="SHOW"?SW_SHOW:SW_HIDE);
+        if(!ShellExecuteEx(&se)) PrintLog("Failed to run command: " + cmd[1] + " " +cmd[2], 2);
+    }
     else if(cmd[0] == "CMD")
     {
         if(!(2<=cmd.size() && cmd.size()<=3))

@@ -37,6 +37,7 @@ CESI_EOF_MARK
 - `COPY|[source absolute/relative path]|[destination folder absolute path][type=Folder/File]`
 - ~~`REG|[ADD/CHG/DEL]|[RootKey]|[Path]|[KeyName]|[ValueName][ValueType=REG_SZ/REG_DWORD]`~~(暂未开发完毕)
 - `RUN|[file absolute/relative path]|[WAIT(optional)]`
+- `EXEC|[file absolute/relative path]|[parameters]|[SHOW|HIDE]`
 - `CMD|[command]|[WAIT(optional)]`
 - `SLEEP|[millisecond]`
 
@@ -45,6 +46,10 @@ CESI_EOF_MARK
 在子文件夹中还需要配置 `CESI_INSTALL_LIST` 清单文件，该文件必须以 `CESI_INSTALL_LIST_FORMATVERSION_1` 开头并以 `CESI_EOF_MARK` 结尾，不得有空行或多余空格，清单中的命令可以为上述四条命令，请严格以 `|` 作为分隔符且分隔符左右不得有多余空格，除了 `CMD` 和 `RUN` 选项外文件中的路径不需要额外用引号包裹。注释可以以 `#` 开头添加至文件中。请参考 `TemplateInstallationFolder` 中的 `CESI_INSTALL_LIST.template` 文件。
 
 值得注意的是我们在该 `.template` 文件下方添加了一些以 `//` 开头的注释，理论上 `CESI_EOF_MARK` 标志下方的行不会被 CESI 读取，但我们仍强烈建议您在使用时删去这些注释以及空行。
+
+> RUN 与 EXEC 的区别：
+>
+> RUN 与 EXEC 选项都可以运行一个可执行文件，前者更偏向于在自身运行环境中新运行一个进程，并且可以选择 CESI 是否等待该进程运行结束；后者更偏向于“激活”一个外部程序，CESI 只激活而无法参与程序的后续操作，并且后者可以额外设置程序运行时窗体显示或隐藏。从底层实现上来说，RUN 选项使用 `CreateProcess` 方法而 EXEC 使用 `ShellExecute` 方法。
 
 ## 安装
 

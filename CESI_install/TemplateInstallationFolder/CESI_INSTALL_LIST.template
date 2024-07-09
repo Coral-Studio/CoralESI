@@ -2,6 +2,7 @@ CESI_INSTALL_LIST_FORMATVERSION_1
 COPY|[source absolute/relative path]|[destination folder absolute path]|[type=Folder/File]
 REG|[ADD/CHG/DEL]|[RootKey]|[Path]|[KeyName]|[ValueName]
 RUN|[file absolute/relative path]|[WAIT(optional)]
+EXEC|[file absolute/relative path]|[parameters]|[SHOW|HIDE]
 CMD|[command]|[WAIT(optional)]
 SLEEP|[millisecond]
 #comment
