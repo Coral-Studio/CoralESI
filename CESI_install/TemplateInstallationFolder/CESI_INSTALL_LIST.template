@@ -4,6 +4,7 @@ REG|[ADD/CHG/DEL]|[RootKey]|[Path]|[KeyName]|[ValueName]
 RUN|[file absolute/relative path]|[WAIT(optional)]
 EXEC|[file absolute/relative path]|[parameters]|[SHOW|HIDE]
 CMD|[command]|[WAIT(optional)]
+KEY|[action=Press/Down/Up]|[KeyValue]
 SLEEP|[millisecond]
 #comment
 CESI_EOF_MARK
@@ -11,5 +12,6 @@ CESI_EOF_MARK
 //Blank lines are not allowed.
 //Use '|' to be the separator.
 //No extra whitespace.
+//KeyValue of KEY option refers to https://learn.microsoft.com/zh-cn/windows/win32/inputdev/virtual-key-codes.
 //The beginning of CESI_INSTALL_LIST_FORMATVERSION_1 and the ending of CESI_EOF_MARK are necessary.
 //You had better delete these comments and leave CESI_EOF_MARK the LAST LINE (which means no more blank lines after CESI_EOF_MARK).

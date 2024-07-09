@@ -182,6 +182,24 @@ int DoCommand(vector<string>cmd){
             return 1;
         }
     }
+    else if(cmd[0] == "KEY"){
+        if(!(3<=cmd.size() && cmd.size()<=3))
+        {
+            PrintLog("Wrong format of command: " + cmd[0], 2);
+            return 1;
+        }
+
+        int keyValue = atoi(cmd[2].c_str());
+
+        if(cmd[1] == "Press" || cmd[1] == "Down")
+        {
+            keybd_event(keyValue, 0, 0, 0);
+        }
+        if(cmd[1] == "Press" || cmd[1] == "Up")
+        {
+            keybd_event(keyValue, 0, 2, 0);
+        }
+    }
     else if(cmd[0] == "SLEEP")
     {
         if(!(2<=cmd.size() && cmd.size()<=2))

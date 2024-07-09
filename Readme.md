@@ -39,6 +39,7 @@ CESI_EOF_MARK
 - `RUN|[file absolute/relative path]|[WAIT(optional)]`
 - `EXEC|[file absolute/relative path]|[parameters]|[SHOW|HIDE]`
 - `CMD|[command]|[WAIT(optional)]`
+- `KEY|[action=Press/Down/Up]|[KeyValue]`
 - `SLEEP|[millisecond]`
 
 请将某个软件相关文件存储在 `CESI_install` 的子文件夹中，并在 `CESI_install.manifest` 中添加子文件夹名，同样地，该文件必须以 `CESI_EOF_MARK` 结尾且不得有空行。
